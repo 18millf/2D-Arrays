@@ -59,13 +59,12 @@ def main():
             if j < len(picture[i]) - 1 and not adjacent:
                 adjacent = picture[i][j+1] == 0
 
-        print("1" if adjacent else " ", end="")
+            print("1" if adjacent else " ", end="")
             
-    print()
+        print()
 
     # Page 213
     # Q11
-
     dark = 0
     perimetre = 0
 
