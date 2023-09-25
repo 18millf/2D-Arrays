@@ -43,7 +43,55 @@ def main():
     # Q10
     for i in range(len(picture)):
         for j in range(len(picture[i])):
-            print()
+
+            if picture[i][j] == 0:
+                print(" ", end="")
+                continue
+
+            adjacent = False
+
+            if i > 0:
+                adjacent = picture[i-1][j] == 0
+            if i < len(picture) - 1 and not adjacent:
+                adjacent = picture[i+1][j] == 0
+            if j > 0 and not adjacent and not adjacent:
+                adjacent = picture[i][j-1] == 0
+            if j < len(picture[i]) - 1 and not adjacent:
+                adjacent = picture[i][j+1] == 0
+
+        print("1" if adjacent else " ", end="")
+            
+    print()
+
+    # Page 213
+    # Q11
+
+    dark = 0
+    perimetre = 0
+
+    for i in range(len(picture)):
+        for j in range(len(picture[i])):
+
+            if picture[i][j] == 0:
+                continue
+
+            dark += 1
+
+            adjacent = False
+
+            if i > 0:
+                adjacent = picture[i-1][j] == 0
+            if i < len(picture) - 1 and not adjacent:
+                adjacent = picture[i+1][j] == 0
+            if j > 0 and not adjacent and not adjacent:
+                adjacent = picture[i][j-1] == 0
+            if j < len(picture[i]) - 1 and not adjacent:
+                adjacent = picture[i][j+1] == 0
+
+            if adjacent:
+                perimetre += 1
+            
+    print(dark / perimetre)
 
 
 if __name__ == "__main__":
